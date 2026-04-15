@@ -10,8 +10,6 @@ public class Advertisement {
 		System.out.println("時給・・・¥¥1,200円");
 		System.out.println("待遇・・・制服貸与、廃棄持ち帰り可能、まかないあり！");
 
-		// TODO 自動生成されたメソッド・スタブ
-
 	}
 
 }
