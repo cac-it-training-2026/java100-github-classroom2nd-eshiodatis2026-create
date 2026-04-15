@@ -44,7 +44,7 @@
  *
  */
 
-package lesson03.challenge02;
+package jp.co.sss.java100_questions_cac.lesson03.challenge02;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -70,15 +70,6 @@ public class Explorer {
 
 			String numStr = br.readLine();
 			inputCans += Integer.parseInt(numStr);
-		}
-
-		if (inputCans >= targetCans) {
-			System.out.println("\n隊長：");
-			System.out.println("OK!");
-			System.out.println("さあこれで探検ができるぞ！");
-		} else {
-			System.out.println("\n隊長：");
-			System.out.println("いや、足りてないから...");
 		}
 
 		if (inputCans >= targetCans) {

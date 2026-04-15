@@ -31,7 +31,7 @@
  *
  */
 
-package lesson03.challenge01;
+package jp.co.sss.java100_questions_cac.lesson03.challenge01;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -45,6 +45,7 @@ public class Explorer {
 		System.out.println("探検隊の隊員を5名募集します。\n");
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 		//ここにfor文を記述する。
 		for (int i = 0; i < 5; i++) {
 
