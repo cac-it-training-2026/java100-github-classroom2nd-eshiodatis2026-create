@@ -34,9 +34,11 @@
 
 package lesson02.challenge05;
 
+import java.io.IOException;
+
 public class Detective {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		int height = 190;
 
@@ -48,6 +50,11 @@ public class Detective {
 		System.out.println("犯人は...");
 
 		// ここにif～else文を入れる
+		if (height > 185) {
+			System.out.println("背の高い人ですね");
+		} else {
+			System.out.println("背の低い人ですね");
+		}
 
 	}
 

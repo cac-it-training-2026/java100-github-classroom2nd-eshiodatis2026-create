@@ -42,9 +42,25 @@ public class WarehouseManager {
 
 		int[] ABKosanArray = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する
+		int inputNum = 0;
+		boolean loopFlag = false;
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			do {
+				loopFlag = false;
+				inputNum = (int) (Math.random() * 10) % 5 + 1;
 
+				for (int j = 0; j < ABKosanArray.length; j++) {
+					if (ABKosanArray[j] == inputNum) {
+						loopFlag = true;
+						break;
+					}
+
+				}
+			} while (loopFlag);
+			ABKosanArray[i] = inputNum;
+
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の並べ替えをお願いします。\n");
@@ -61,9 +77,20 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに昇順にソートする処理を記述する
-
+		for (int i = 0; i < ABKosanArray.length - 1; i++) {//iは正しい値を置きたい位置。length-1は最後の1つは比較しなくていいから
+			for (int j = i + 1; j < ABKosanArray.length; j++) {//jはiの右側にある要素。i番目の値と後ろのすべての値を比べる
+				if (ABKosanArray[i] > ABKosanArray[j]) {//順番が逆なら入れ替える。iの方が大きかったら昇順になっていないので入れ替える。
+					int temp = ABKosanArray[i];//両手にiとjを持っている→同時には交換できない→一時変数tempにi一時的に入れる。
+					ABKosanArray[i] = ABKosanArray[j];//iの方の手が空いたので、そこにjを代入する
+					ABKosanArray[j] = temp;//jが空いたので、tempに代入していた値iを代入する
+				}
+			}
+		}
+		//例：「3，2，1」
+		//i=0
+		//j=1→3と2→入れ替え→「2，3，1」
+		//j=2→2と1→入れ替え→「1，3，2」
 
 		System.out.println("小さい順に並べ替えた後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
@@ -74,9 +101,16 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに降順にソートする処理を記述する
-
+		for (int i = 0; i < ABKosanArray.length - 1; i++) {
+			for (int j = i + 1; j < ABKosanArray.length; j++) {
+				if (ABKosanArray[i] < ABKosanArray[j])
+					;
+				int temp = ABKosanArray[i];
+				ABKosanArray[i] = ABKosanArray[j];
+				ABKosanArray[j] = temp;
+			}
+		}
 
 		System.out.println("大きい順に並べ替えた後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {

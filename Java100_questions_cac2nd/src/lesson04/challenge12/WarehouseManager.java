@@ -60,17 +60,17 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-		int[] wonderfulArray = new int[5];
+		int[] wonderfulArray = new int[5];//不思議なコンテナ五箱、要素数５の配列の宣言
 
 		int insertNum = 0;
 		int insertIndex = 0;
 		boolean loopFlag;
 		do {
 			loopFlag = false;
-			insertNum = (int) (Math.random() * 10) % 5 + 1;
+			insertNum = (int) (Math.random() * 10) % 5 + 1;//１～５の乱数を生成
 			for (int i = 0; i < wonderfulArray.length; i++) {
-				if (wonderfulArray[i] == insertNum) {
-					loopFlag = true;
+				if (wonderfulArray[i] == insertNum) {//重複チェック、すでに箱の中に入っているか。
+					loopFlag = true;//重複していたらloopFlag=trueでやり直し
 					break;
 				}
 			}
@@ -81,7 +81,7 @@ public class WarehouseManager {
 		} while (loopFlag || insertIndex < 5);
 
 		int clearIndex = (int) (Math.random() * 10) % 5;
-		wonderfulArray[clearIndex] = 0;
+		wonderfulArray[clearIndex] = 0;//ランダムな箱を０に置き換える。
 
 		System.out.println("E主任：");
 		System.out.println("ふしぎなコンテナの件、お願いします。\n");
@@ -91,7 +91,7 @@ public class WarehouseManager {
 
 		System.out.print("ふしコン...");
 		for (int i = 0; i < wonderfulArray.length; i++) {
-			System.out.print(wonderfulArray[i]);
+			System.out.print(wonderfulArray[i]);//wonderfularrayのなかを全部出力する
 			if (i != (wonderfulArray.length - 1)) {
 				System.out.print(",");
 			}
@@ -99,9 +99,21 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに適切な値の挿入処理を記述する
+		int targetIndex = 0;//0が入っている場所
+		int totalPoint = 0;//ほかの4つの合計
 
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			if (wonderfulArray[i] == 0) {
+				targetIndex = i;
+			} else {
+				totalPoint += wonderfulArray[i];
+			}
+
+		}
+
+		wonderfulArray[targetIndex] = (15 - totalPoint);//足りない数字を計算して0と入れ替え。1～5までの和が15になる
+		//足りない数＝15ー（今は言っている4つの合計）→必ず0が重複しない正しい数字に置き換わる
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");

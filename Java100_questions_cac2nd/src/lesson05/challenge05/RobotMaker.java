@@ -36,30 +36,54 @@ import java.io.InputStreamReader;
 //ここに問題4で作成したクラスに次の条件を足したクラスを作成してください。
 //メソッド名：setWater(引数int water、戻り値void、フィールドwaterに引数の値を代入する)
 //メソッドpumpWaterを改修し、randomWater()を削除
+class Robot {
+	int energy;
+	String name;
+	int water;
+
+	void pumpWater() {
+		System.out.println("水を" + water + "リットルだけ出しました。");
+	}
+
+	void randomWater() {
+		water = (int) (Math.random() * 9) + 1;//0から始まるから、＋1をして1～9にする。
+		//		Math.random() * 9 → 0.0〜8.999…
+		//		(int) → 0〜8
+		//		+ 1 → 1〜9
+
+	}
+
+	void setWater(int water) {
+		this.water = water;
+	}
+}
 
 public class RobotMaker {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("Rさん：");
-        System.out.println("でもランダムだと必要な量だけ出せないですね。\n");
-        System.out.println("G博士：");
-        System.out.println("そう言うと思って水量調節機能を実装してみたぞ。\n");
-        System.out.println("Rさん：");
-        System.out.println("どうやって使うんですか？\n");
-        System.out.println("G博士：");
-        System.out.println("簡単じゃ。必要な水量をリットル単位で入力すればいいんじゃ。\n");
+		System.out.println("Rさん：");
+		System.out.println("でもランダムだと必要な量だけ出せないですね。\n");
+		System.out.println("G博士：");
+		System.out.println("そう言うと思って水量調節機能を実装してみたぞ。\n");
+		System.out.println("Rさん：");
+		System.out.println("どうやって使うんですか？\n");
+		System.out.println("G博士：");
+		System.out.println("簡単じゃ。必要な水量をリットル単位で入力すればいいんじゃ。\n");
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("出したい水の量を入力してください＞");
-        String waterStr = br.readLine();
-        int water = Integer.parseInt(waterStr);
+		System.out.print("出したい水の量を入力してください＞");
+		String waterStr = br.readLine();
+		int water = Integer.parseInt(waterStr);
 
-        //ここでRobotクラスのインスタンスを作り、
-        //（インスタンス名はrobot）
-        //setWaterを実行する。
-        //pumpWaterを実行する。
-    }
+		//ここでRobotクラスのインスタンスを作り、
+		//（インスタンス名はrobot）
+		//setWaterを実行する。
+		//pumpWaterを実行する。
+		Robot robot = new Robot();
+		robot.setWater(water);
+		robot.pumpWater();
+	}
 
 }

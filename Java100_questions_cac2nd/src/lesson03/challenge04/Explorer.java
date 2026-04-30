@@ -64,10 +64,7 @@ public class Explorer {
 		int fullLength = 300;
 		int member = 0;
 
-
 		//ここにwhile文を利用した処理を記述
-
-
 		System.out.println("全員渡り終わったよ！");
 
 	}

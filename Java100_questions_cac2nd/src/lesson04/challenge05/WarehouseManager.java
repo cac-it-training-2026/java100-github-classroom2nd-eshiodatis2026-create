@@ -32,16 +32,32 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに配列の宣言を記述する
-
+		int[] AbArray = new int[5];
 
 		int intputNum = 0;
-		boolean loopFlag = false;
-
+		//袋に入れようとしている数値を入れるための空箱
+		//条件①各袋に1～5の数値をランダムに入れる。②同じ数値は二度入れない。
+		//→処理①ランダムで１～５の数値を作る②その数値がすでにほかの袋で使われていないか確認する③問題がなければその袋に入れる
+		boolean loopFlag = false;//ループ（for/while）を続けるか、止めるかを制御するための変数。
 
 		//ここに重複チェックおよび値の代入処理を記述する
+		for (int i = 0; i < AbArray.length; i++) {
+			do {//do-while+booleanフラグで重複チェック。配列内に同じ値があれば再抽選
+				loopFlag = false;
+				intputNum = (int) (Math.random() * 10) % 5 + 1;//1～5のランダムな数値intputNumに入れる
 
+				for (int j = 0; j < AbArray.length; j++) {
+					if (AbArray[j] == intputNum) {//その数値がすでに使われていたらNG、もう一度ランダムを生成しなおす
+						loopFlag = true;
+						break;
+					}
+
+				}
+			} while (loopFlag);
+			AbArray[i] = intputNum;//重複していなければ正式に袋に入れる数値として確定
+
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
@@ -49,9 +65,14 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 		System.out.println("はい、");
 
-
 		//ここに要素の確認および何袋目かの出力処理を記述する
+		for (int i = 0; i < AbArray.length; i++) {
+			if (AbArray[i] == 5) {
+				System.out.println((i + 1) + "袋目");
+				break;
+			}
 
+		}
 
 		System.out.println("に入っていました。");
 
