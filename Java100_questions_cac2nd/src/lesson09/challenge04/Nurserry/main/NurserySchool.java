@@ -54,7 +54,12 @@ public class NurserySchool {
 
 
         //ここに適切な処理を記述
-
-
-    }
+        try {
+			nurse1.takeTemperature(child1);
+			nurse2.takeTemperature(child2);
+			nurse3.takeTemperature(child3);
+		} catch (CriticalConditionException e) {
+			System.out.println("すぐに病院に行ってください。");
+        }
+ }
 }
